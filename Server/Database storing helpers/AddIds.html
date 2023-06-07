@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Document</title>
+</head>
+<body>
+
+
+        <!-- Login container -->
+        <div class="container">
+            <form class="myform">
+                <h1>Login</h1>
+                    <label for="Pool">Pool:</label>
+                    <input type="text" name="Pool" id="Pool">
+                <br>
+                    <label for="SubjectName">SubjectName:</label>
+                    <input type="text" name="SubjectName" id="SubjectName">
+                <br>
+                <select name="Year" id="Year">
+                    <option value="FirstYear">First</option>
+                    <option value="SecondYear">Second</option>
+                    <option value="ThirdYear">Third</option>
+                </select>
+                <br>
+                <button>SignUp</button>
+                <br>
+            </form>
+        </div>
+
+
+
+
+</body>
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+<script>
+    let btn=document.querySelector('button');
+    btn.addEventListener('click',async (e)=>{
+
+        e.preventDefault();           //To prevent reloading.
+
+        let SubjectName=document.querySelector("#SubjectName").value;
+        let Pool=document.querySelector("#Pool").value;
+        let Year=document.querySelector("#Year").value;
+        let Subject=[];
+        
+
+        let resp=await axios.post('/Pool/AddIds',{Pool,Subject,Year,SubjectName});
+        console.log('resp',resp);
+    })
+</script>
+</html>
