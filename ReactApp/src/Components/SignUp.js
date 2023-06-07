@@ -1,5 +1,6 @@
 import React, { useState} from "react";
 import { useNavigate } from 'react-router-dom';
+import { useCookies } from "react-cookie";
 import axios from "axios";
 
 
@@ -10,6 +11,8 @@ import axios from "axios";
 
 
 export default function SignUp(){
+
+    const [cookies,setCookies,removeCookies]=useCookies();
 
     const navigate=useNavigate();
     const navigateToAfterlogin=()=>{
@@ -46,8 +49,16 @@ export default function SignUp(){
         Branch:data.Branch
         })
         .then(res=>{
-            console.log(res);
             alert(res.data.message)
+            if(res.data.loginStatus){
+                setCookies('isLoggedIn',res.data.token,{
+                    maxAge:1000*60*60*24
+                });
+                setCookies('Id',res.data.UserDetails._id,{
+                    maxAge:1000*60*60*24
+                });
+                navigateToAfterlogin();
+            }
         })
     }
 
@@ -94,8 +105,7 @@ export default function SignUp(){
                         <option value="COBS">COBS</option>
                     </select>    
                 <br/>
-                <button>SignUp</button>            
-                <button onClick={navigateToAfterlogin}>Proceed</button>            
+                <button>SignUp</button>                      
                 <br/>
             </form>
         </div>
