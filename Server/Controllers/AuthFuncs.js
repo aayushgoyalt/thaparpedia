@@ -23,6 +23,7 @@ module.exports.Signup= async function Signup(req,res){
             
         res.json({
             message:"User signed up",
+            loginStatus:true,
             data:data
         });
         
