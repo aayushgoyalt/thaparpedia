@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Document</title>
+</head>
+<body>
+
+
+        <!-- Login container -->
+        <div class="container">
+            <form class="myform">
+                <h1>Login</h1>
+                    <label for="Subject">Subject:</label>
+                    <input type="text" name="Subject" id="Subject">
+                <br>
+                    <label for="A">A:</label>
+                    <input type="number" name="A" id="A">
+                <br>
+                    <label for="Aneg">Aneg:</label>
+                    <input type="number" name="Aneg" id="Aneg">
+                <br>
+                    <label for="B">B:</label>
+                    <input type="number" name="B" id="B">
+                <br>
+                    <label for="Bneg">Bneg:</label>
+                    <input type="number" name="Bneg" id="Bneg">
+                <br>
+                <br>
+                    <label for="C">C:</label>
+                    <input type="number" name="C" id="C">
+                <br>
+                <br>
+                    <label for="Cneg">Cneg:</label>
+                    <input type="number" name="Cneg" id="Cneg">
+                <br>
+                <br>
+                    <label for="F">F:</label>
+                    <input type="number" name="F" id="F">
+                <br>
+                <br>
+                    <label for="Credit">Credit:</label>
+                    <input type="number" name="Credit" id="Credit">
+                <br>
+                <br>
+                    <label for="Site">Site:</label>
+                    <input type="text" name="Site" id="Site">
+                <br>
+                <br>
+                    <label for="CourseCode">CourseCode:</label>
+                    <input type="text" name="CourseCode" id="CourseCode">
+                <br>
+                <button>Add Subject</button>
+                <br>
+            </form>
+        </div>
+
+
+
+
+</body>
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+<script>
+    let btn=document.querySelector('button');
+    btn.addEventListener('click',async (e)=>{
+
+        e.preventDefault();           //To prevent reloading.
+
+        let Subject=document.querySelector("#Subject").value;
+        let A=document.querySelector("#A").value;
+        let Aneg=document.querySelector("#Aneg").value;
+        let B=document.querySelector("#B").value;
+        let Bneg=document.querySelector("#Bneg").value;
+        let C=document.querySelector("#C").value;
+        let Cneg=document.querySelector("#Cneg").value;
+        let F=document.querySelector("#F").value;
+        let Credit=document.querySelector("#Credit").value;
+        let Site=document.querySelector("#Site").value;
+        let CourseCode=document.querySelector("#CourseCode").value;
+        
+
+        let resp=await axios.post('/subject/AddSubs',{Subject,A,Aneg,B,Bneg,C,Cneg,F,Credit,Site,CourseCode});
+        console.log('resp',resp);
+    })
+</script>
+</html>
