@@ -40,11 +40,12 @@ export default function Login(){
                 setCookies('Id',res.data.UserDetails._id,{
                     maxAge:1000*60*60*24
                 });
+                navigateToAfterlogin();
             }
         })
     }
 
-    
+   
 
 
     function handle(e){
@@ -64,7 +65,6 @@ export default function Login(){
                     <input  onChange={(e)=>handle(e)} placeholder="Password"  value={data.Password}   type="password" name="Password" id="Password" />
                 <br/>
                 <button>Login</button>            
-                <button onClick={navigateToAfterlogin}>Proceed</button>            
                 <br/>
             </form>
         </div>
