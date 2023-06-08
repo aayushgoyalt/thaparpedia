@@ -19,13 +19,20 @@ module.exports.Signup= async function Signup(req,res){
         let data=req.body;
         let user=await collection1.create(data);
         
-        console.log(data);
-            
+        const userm=await collection1.findOne({Email:user.Email});
+         const uuid=userm._id;
+                const token=jwt.sign({payload:uuid},secret_key);
+                res.cookie('isLoggedIn',token,{
+                    maxAge:1000*60*60*24
+                });    
         res.json({
             message:"User signed up",
             loginStatus:true,
-            data:data
+            data:data,
+            newuser:userm,
+            token:token                       
         });
+       
         
     }
     catch(err){
