@@ -54,10 +54,10 @@ export default function SignUp(){
                 setCookies('isLoggedIn',res.data.token,{
                     maxAge:1000*60*60*24
                 });
-                setCookies('Id',res.data.UserDetails._id,{
+                setCookies('Id',res.data.newuser._id,{
                     maxAge:1000*60*60*24
                 });
-                navigateToAfterlogin();
+                navigateToAfterlogin(); 
             }
         })
     }
