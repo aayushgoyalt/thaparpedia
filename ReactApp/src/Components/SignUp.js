@@ -2,6 +2,7 @@ import React, { useState} from "react";
 import { useNavigate } from 'react-router-dom';
 import { useCookies } from "react-cookie";
 import axios from "axios";
+import { apiUrl } from "../config";
 
 
 
@@ -20,7 +21,7 @@ export default function SignUp(){
     }
     
 
-    const url='http://127.0.0.1:7000/auth/signup';
+    const url=apiUrl+'auth/signup';
     const [data,setData]=useState({
         Name:"",
         Email:"",

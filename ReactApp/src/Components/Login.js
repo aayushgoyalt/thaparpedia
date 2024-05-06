@@ -2,6 +2,7 @@ import React, { useState} from "react";
 import { useNavigate } from 'react-router-dom';
 import axios from "axios";
 import { useCookies } from "react-cookie";
+import { apiUrl } from "../config";
 
 
 
@@ -17,7 +18,7 @@ export default function Login(){
     }
     
 
-    const url='http://127.0.0.1:7000/auth/login';
+    const url=apiUrl+'auth/login';
     const [data,setData]=useState({
         Email:"",
         Password:"",

@@ -22,7 +22,6 @@ export default function Home(){
     }
 
     // useEffect(()=>{
-    //   fetch('http://127.0.0.1:7000/afterlogin')
     //   .then((res)=>res.json())
     //   .then((data)=>setMessage(data.data));
     // },[])

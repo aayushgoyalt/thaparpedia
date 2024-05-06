@@ -1,0 +1,13 @@
+version: '3.8'
+
+services:
+  api:
+    image: pariansh/thaparpedia
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    ports:
+      - "4416:7000"
+    volumes:
+      - "/home/iete/pm/frontend:/app/uploads"
+    restart: always

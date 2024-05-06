@@ -5,6 +5,7 @@ import { useCookies } from "react-cookie";
 
 import SubjectDetails from "./SubjectDetails/SubjectDetails";
 import NavAcad from "../Navbar/NavAcad";
+import { apiUrl } from "../../config";
 
 
 
@@ -15,7 +16,7 @@ export default function Subjects(props){
 
     const navigate=useNavigate();
     
-    const url='http://127.0.0.1:7000/acad';
+    const url=apiUrl+'acad';
     function submit(){
         axios.post(url,{
             id:cookies.Id

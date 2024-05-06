@@ -4,6 +4,7 @@ import { useCookies } from "react-cookie";
 import NavAcad from "../../Navbar/NavAcad";
 import { useNavigate } from "react-router-dom";
 import './SubjectDetails.css'
+import { apiUrl } from "../../../config";
 // import { useLocation } from "react-router-dom";
 
 export default function SubjectDetails(props){
@@ -23,7 +24,7 @@ export default function SubjectDetails(props){
         navigate('/');
     }
     
-    const url='http://127.0.0.1:7000/acad/subDetails';
+    const url=apiUrl+'acad/subDetails';
     function submit(){
         axios.post(url,{
             Name:props.name
@@ -140,7 +141,7 @@ export default function SubjectDetails(props){
                     {notes.map((link)=>{
                     return(
                         <>
-                    <li><a href={'http://127.0.0.1:7000/acad/pdf/?link='+link.url} target="_blank">{link.name}</a></li>
+                    <li><a href={apiUrl+'acad/pdf/?link='+link.url} target="_blank">{link.name}</a></li>
          
                     </>
                 )})}
@@ -156,7 +157,7 @@ export default function SubjectDetails(props){
                     {tutes.map((link)=>{
                     return(
                         <>
-                    <li><a href={'http://127.0.0.1:7000/acad/pdf/?link='+link.url} target="_blank">{link.name}</a></li>
+                    <li><a href={apiUrl+'acad/pdf/?link='+link.url} target="_blank">{link.name}</a></li>
                     </>
                 )})}
                   </ol>

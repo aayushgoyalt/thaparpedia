@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import axios from "axios";
 import { Navigate } from "react-router-dom";
 import { useCookies } from "react-cookie";
+import { apiUrl } from "../../../config";
 
 
 
@@ -14,7 +15,7 @@ export default function GPA_Calc(){
       //for subjects of users
       const[subjects,setSubjects]=useState([]);
       const [cookies,setCookies,removeCookies]=useCookies();
-      const url1='http://127.0.0.1:7000/acad';
+      const url1=apiUrl+'acad';
     
       
 
@@ -42,7 +43,7 @@ export default function GPA_Calc(){
         e.preventDefault();
 
 
-        const url2='http://127.0.0.1:7000/acad/subDetails';
+        const url2=apiUrl+'acad/subDetails';
         
 
         //Fetching details of a subject

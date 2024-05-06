@@ -7,6 +7,7 @@ import { useNavigate } from 'react-router-dom';
 import AfterLogin from "./Acad/AfterLogin";
 import Subjects from "./Acad/Subjects";
 import SubjectDetails from "./Acad/SubjectDetails/SubjectDetails";
+import { apiUrl } from "../config";
 
 export default function Authenticate(props){
     
@@ -22,7 +23,7 @@ export default function Authenticate(props){
     
 
 
-    const url='http://127.0.0.1:7000/protect';
+    const url=apiUrl+'protect';
 
     function submit(){
         axios.post(url,{
