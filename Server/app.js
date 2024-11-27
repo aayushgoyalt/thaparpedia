@@ -54,7 +54,6 @@ app.get('/acad/pdf', (req, res) => {
 
 
 const port = process.env.PORT || 7000;
-const host = '127.0.0.1';
 
-app.listen(port, host, () => console.log(`http://${host}:${port}`));
+app.listen(port, host, () => console.log(`http://localhost:${port}`));
   
